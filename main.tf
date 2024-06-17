@@ -9,6 +9,11 @@ module "glue" {
   project_name = local.project_name
 }
 
+module "sagemaker" {
+  source = "./sagemaker"
+  s3_bucket = module.s3.bucket_bucket
+}
+
 #module "athena" {
 #  source = "./athena"
 #  s3_bucket_id = module.s3.bucket_id
