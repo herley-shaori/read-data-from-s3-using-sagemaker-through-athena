@@ -14,9 +14,9 @@ module "sagemaker" {
   s3_bucket = module.s3.bucket_bucket
 }
 
-#module "athena" {
-#  source = "./athena"
-#  s3_bucket_id = module.s3.bucket_id
-#  project_name = local.project_name
-#  glue_database_name = module.glue.glue_database_name
-#}
+module "athena" {
+  source = "./athena"
+  s3_bucket_id = module.s3.bucket_id
+  project_name = local.project_name
+  glue_database_name = module.glue.glue_database_name
+}

@@ -31,8 +31,18 @@ resource "aws_iam_policy" "s3_access_policy" {
       {
         Effect = "Allow"
         Action = [
-          "s3:GetObject",
-          "s3:ListBucket"
+          "s3:Get*",
+          "s3:List*",
+          "athena:*"
+        ]
+        Resource = [
+          "*"
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "s3:*"
         ]
         Resource = [
           "arn:aws:s3:::${var.s3_bucket}",
